@@ -13,7 +13,7 @@ import (
 type Superhero struct { //automigrate akan membuat nama tabel di db dengan nama seperti nama struct
 	gorm.Model
 	Name   string `validate:"required,min=3,max=15"`
-	Value  string
+	Value  string `validate:"required,min=3,max=15"`
 	Author string
 }
 
