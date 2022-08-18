@@ -1,0 +1,14 @@
+{
+    "errorMessage": [
+      {
+        "required": "harus diisi!",
+        "min": "Kurang banyak oi!",
+        "max": "Kebanyakan oi!"
+      }
+    ],
+    "warningMessage": {
+        "stop": "silahkan berhenti",
+        "maju": "silahkan berjalan"
+
+      }
+}
