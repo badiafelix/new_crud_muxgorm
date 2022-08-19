@@ -16,7 +16,7 @@ func main() {
 	r.HandleFunc("/pahlawan", controllers.C_GetAllSuperheroBooks).Methods("GET")
 	r.HandleFunc("/pahlawan/{name}", controllers.C_GetSuperheroById).Methods("GET")
 	r.HandleFunc("/pahlawan", controllers.C_InsertSuperhero).Methods("POST")
-
+	r.HandleFunc("/pahlawan", controllers.C_UpdateSuperhero).Methods("PUT")
 	r.HandleFunc("/pahlawan/{name}", controllers.C_DeleteSuperheroById).Methods("DELETE")
 
 	fmt.Printf("Starting server at port 8000\n")

@@ -78,6 +78,25 @@ func InsertSuperhero(paramINput Superhero) (*Superhero, bool, *gorm.DB) { // ret
 	return &InsertHero, isValid, err
 }
 
+func UpdateSuperhero(paramINput Superhero) (*Superhero, bool, *gorm.DB) { // return 3 type data *superhero, isValid dan *gorm.db
+	var InsertHero Superhero
+	var isValid bool
+	config.ConnectDb()
+	//err := config.Db.Raw("INSERT INTO test_automigrates(created_at,name,value,author)VALUES(current_timestamp,?, ?, ?);", paramINput.Name, paramINput.Value, paramINput.Author).Scan(&InsertHero)
+	err := config.Db.Raw("UPDATE test_automigrates SET updated_at = current_timestamp, value = ?, author = ? WHERE name = ?;", paramINput.Value, paramINput.Author, paramINput.Name).Scan(&InsertHero)
+
+	if err.Error != nil {
+		isValid = false
+		fmt.Println("ada error")
+		fmt.Printf("pesan errornya adalah : %v", err.Error.Error())
+	} else {
+		isValid = true
+		fmt.Println("tidak ada error")
+		//GetSuperheroById(paramINput.Name)
+	}
+	return &InsertHero, isValid, err
+}
+
 func DeleteSuperheroById(paramName string) (*Superhero, bool, *gorm.DB) {
 	var selById Superhero
 	var isValid bool
